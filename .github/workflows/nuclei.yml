@@ -10,11 +10,11 @@ jobs:
       - name: Start application
         run: docker run -d -p 5050:5050 --name flask we45/vul_flask
 
-      - name: DAST Scan
-        uses: projectdiscovery/nuclei-action@main
-        with:
-          target: http://localhost:5050
-          templates: ./api-scan.yaml
+      # - name: DAST Scan
+      #   uses: projectdiscovery/nuclei-action@main
+      #   with:
+      #     target: http://localhost:5050
+      #     templates: ./api-scan.yaml
 
       - name: Template Injection
         uses: projectdiscovery/nuclei-action@main
