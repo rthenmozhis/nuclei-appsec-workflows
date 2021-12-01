@@ -1,0 +1,18 @@
+id: template-injection
+info:
+  name: Template Injection
+  author: sharath
+  severity: high
+  description: Scan for JINJA2 Template Injection
+requests:  
+  - method: GET
+    path:
+      - "{{BaseURL}}/%7B%7Bconfig.items()%7D%7D"
+    matchers:
+      - type: status
+        status:
+          - 404
+      - type: regex
+        part: body
+        regex:
+          - "JSON_AS_ASCII"          

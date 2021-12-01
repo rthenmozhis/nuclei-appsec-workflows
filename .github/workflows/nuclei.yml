@@ -1,0 +1,29 @@
+name: Nuclei Action
+on: push
+jobs:  
+  dast:
+    name: Scan API Endpoints
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Start application
+        run: docker run -it -p 5050:5050 --name flask we45/vul_flask
+
+      - name: DAST Scan
+        uses: projectdiscovery/nuclei-action@main
+        with:
+          target: http://localhost:5050
+          templates: ./api-scan.yaml
+
+      - name: Template Injection
+        uses: projectdiscovery/nuclei-action@main
+        with:
+          target: http://localhost:5050
+          templates: ./template-injection.yaml
+
+      - name: Stop application
+        if: always()
+        run: docker stop flask
+      
+      
