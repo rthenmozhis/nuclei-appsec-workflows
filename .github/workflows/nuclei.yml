@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Start application
-        run: docker run -it -p 5050:5050 --name flask we45/vul_flask
+        run: docker run -d -p 5050:5050 --name flask we45/vul_flask
 
       - name: DAST Scan
         uses: projectdiscovery/nuclei-action@main
