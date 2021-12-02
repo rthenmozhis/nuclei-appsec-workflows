@@ -22,6 +22,11 @@ jobs:
           target: http://localhost:5050
           templates: ./template-injection.yaml
 
+      - name: GitHub Security Dashboard Alerts
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: nuclei.sarif
+
       - name: Stop application
         if: always()
         run: docker stop flask

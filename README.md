@@ -55,3 +55,4 @@ nuclei -t template-injection.yaml -u http://localhost:5050
 * https://github.com/projectdiscovery/nuclei-templates/tree/master/cves/2021
 * https://github.com/grafana/grafana/security/advisories/GHSA-3j9m-hcv9-rpj8
 * https://nuclei.projectdiscovery.io/templating-guide/operators/matchers/
+* https://blog.escape.tech/devsecops-part-iii-scanning-live-web-applications/
