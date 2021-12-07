@@ -61,7 +61,7 @@ wget https://raw.githubusercontent.com/sharathkramadas/k8s-nuclei-templates/main
 * Test for unauthenticated urls
 
 ```bash
-nuclei -t kube-api-scan.yaml -u https://35.215.73.220:6443
+nuclei -t kube-api-scan.yaml -u https://<ip>:6443
 ```
 
 ##### References
