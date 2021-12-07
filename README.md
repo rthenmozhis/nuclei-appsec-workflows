@@ -11,7 +11,7 @@ wget https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/
 * Run Grafana docker
 
 ```bash
-docker run -d --name=grafana -p 3000:3000 grafana/grafana-enterprise:8.1.0
+docker run -d -p 3000:3000 grafana/grafana-enterprise:8.1.0
 ```
 
 * Exploit the vulnerability
@@ -61,7 +61,7 @@ wget https://raw.githubusercontent.com/sharathkramadas/k8s-nuclei-templates/main
 * Test for unauthenticated urls
 
 ```bash
-nuclei -t kube-api-scan.yaml -u https://35.215.98.118:6443
+nuclei -t kube-api-scan.yaml -u https://<ip>:6443
 ```
 
 ##### References
