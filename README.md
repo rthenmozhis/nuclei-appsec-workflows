@@ -28,7 +28,7 @@ nuclei -t CVE-2021-41174.yaml -u http://localhost:3000
 * Run app
 
 ```bash
-docker run -it -p 5050:5050 we45/vul_flask
+docker run -d -p 5050:5050 we45/vul_flask
 ```
 
 * Test urls
@@ -47,6 +47,21 @@ nuclei -t api-scan.yaml -u http://localhost:5050
 
 ```bash
 nuclei -t template-injection.yaml -u http://localhost:5050
+```
+
+
+#### Infra Scan
+
+* Download the Kube API Scan template
+
+```bash
+wget https://raw.githubusercontent.com/sharathkramadas/k8s-nuclei-templates/main/kube-api-scan.yaml
+```
+
+* Test for unauthenticated urls
+
+```bash
+nuclei -t kube-api-scan.yaml -u https://35.215.98.118:6443
 ```
 
 ##### References
